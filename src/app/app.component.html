@@ -1,5 +1,14 @@
 <header>
-    <button (click)="onToggleDarkMode()">Toggle Dark Mode</button>
+    <div class="first-line">
+        <h1>Come to the dark side</h1>
+        <button
+            role="switch"
+            [attr.aria-checked]="isSpecialDarkModeOn"
+            (click)="onToggleDarkMode()"
+        >
+            Go Dark
+        </button>
+    </div>
     <nav
         class="main-navigation"
         aria-label="Main Navigation"

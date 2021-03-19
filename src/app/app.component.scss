@@ -19,7 +19,16 @@ footer {
 header {
     flex: 0 0 4rem;
     background-color: rgb(245, 188, 253);
-
+    .first-line {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    h1 {
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 0;
+    }
     nav {
         margin-top: 1rem;
         a[href] {

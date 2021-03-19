@@ -9,7 +9,8 @@ export class AppComponent {
     @HostBinding('class') classes = '';
     @HostBinding('id') id = 'app-container';
 
-    private isSpecialDarkModeOn = false;
+    public isSpecialDarkModeOn = false;
+
     /**
      * Name needs to match CSS class defined in styles.scss
      */
