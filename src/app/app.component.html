@@ -1,6 +1,24 @@
 <header>
-    Menu goes here
     <button (click)="onToggleDarkMode()">Toggle Dark Mode</button>
+    <nav
+        class="main-navigation"
+        aria-label="Main Navigation"
+    >
+        <a
+            [routerLink]="['/facts']"
+            routerLinkActive="router-link-active"
+        >
+            Web Accessibility Facts
+        </a>
+        <a
+            [routerLink]="['/form']"
+            routerLinkActive="router-link-active"
+        >
+            Form Example
+        </a>
+    </nav>
 </header>
-<main>main content (routing)</main>
+<main>
+    <router-outlet></router-outlet>
+</main>
 <footer>An a11y project by Alexander Lehner</footer>

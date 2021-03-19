@@ -5,12 +5,19 @@ body {
     padding: 0;
 }
 
+#app-container.special-dark-mode {
+    max-width: 100%;
+    margin: 0;
+}
 #app-container.special-dark-mode * {
     pointer-events: none;
     user-select: none;
     background: black;
     color: black;
     border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
     &:focus {
         // This is an absolute A11Y NO GO!
         // I forced myself to write this to simulate how a blind person would experience this website (see README.md) ... it still hurt!
@@ -31,11 +38,18 @@ button {
     -moz-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.75);
     box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.75);
     cursor: pointer;
-    &:focus {
+    &:focus,
+    &:hover {
         outline: 0.15rem solid black;
         outline-offset: 1px;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        box-shadow: none;
+        -webkit-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.25);
+        box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.25);
     }
+}
+
+a[href]:focus,
+a[href]:hover {
+    outline: 0.15rem solid black;
+    outline-offset: 1px;
 }
