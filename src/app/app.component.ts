@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    title = 'come-to-the-dark-side';
+    @HostBinding('class') classes = '';
+    @HostBinding('id') id = 'app-container';
+
+    private isSpecialDarkModeOn = false;
+    /**
+     * Name needs to match CSS class defined in styles.scss
+     */
+    private readonly specialDarkModeCssClass = 'special-dark-mode';
+
+    public onToggleDarkMode() {
+        this.classes = this.isSpecialDarkModeOn ? '' : this.specialDarkModeCssClass;
+        this.isSpecialDarkModeOn = !this.isSpecialDarkModeOn;
+    }
 }

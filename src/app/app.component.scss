@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header,
+main,
+footer {
+    padding: 0.5rem;
+}
+
+header {
+    flex: 0 0 5rem;
+    background-color: rgb(235, 155, 155);
+}
+
+main {
+    flex: 1 1 0rem;
+}
+
+footer {
+    background-color: lightgrey;
+    border-top: 1px solid darkgrey;
+}
