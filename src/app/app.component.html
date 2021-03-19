@@ -1,31 +1,39 @@
 <header>
-    <div class="first-line">
-        <h1>Come to the dark side</h1>
-        <button
-            role="switch"
-            [attr.aria-checked]="isSpecialDarkModeOn"
-            (click)="onToggleDarkMode()"
+    <div class="header-content">
+        <div class="first-line">
+            <h1>Come to the dark side</h1>
+            <button
+                role="switch"
+                [attr.aria-checked]="isSpecialDarkModeOn"
+                (click)="onToggleDarkMode()"
+            >
+                Go Dark
+            </button>
+        </div>
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
         >
-            Go Dark
-        </button>
+            <a
+                [routerLink]="['/']"
+                routerLinkActive="router-link-active"
+            >
+                Home
+            </a>
+            <a
+                [routerLink]="['/facts']"
+                routerLinkActive="router-link-active"
+            >
+                Web Accessibility Facts
+            </a>
+            <a
+                [routerLink]="['/form']"
+                routerLinkActive="router-link-active"
+            >
+                Form Example
+            </a>
+        </nav>
     </div>
-    <nav
-        class="main-navigation"
-        aria-label="Main Navigation"
-    >
-        <a
-            [routerLink]="['/facts']"
-            routerLinkActive="router-link-active"
-        >
-            Web Accessibility Facts
-        </a>
-        <a
-            [routerLink]="['/form']"
-            routerLinkActive="router-link-active"
-        >
-            Form Example
-        </a>
-    </nav>
 </header>
 <main>
     <router-outlet></router-outlet>

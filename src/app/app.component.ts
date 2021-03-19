@@ -16,7 +16,7 @@ export class AppComponent {
      */
     private readonly specialDarkModeCssClass = 'special-dark-mode';
 
-    public onToggleDarkMode() {
+    public onToggleDarkMode(): void {
         this.classes = this.isSpecialDarkModeOn ? '' : this.specialDarkModeCssClass;
         this.isSpecialDarkModeOn = !this.isSpecialDarkModeOn;
     }
