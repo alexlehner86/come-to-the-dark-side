@@ -4,6 +4,8 @@
     min-height: 100vh;
 }
 
+$content-max-width: 40rem;
+
 header,
 main {
     padding: 1rem;
@@ -20,7 +22,7 @@ header {
     flex: 0 0 4rem;
     background-color: rgb(245, 188, 253);
     .header-content {
-        max-width: 50rem;
+        max-width: $content-max-width;
         margin: 0 auto;
     }
     .first-line {
@@ -36,6 +38,7 @@ header {
     nav {
         margin-top: 1rem;
         a[href] {
+            padding: 0.5rem;
             color: black;
             font-weight: bold;
             &:not(:last-of-type) {
@@ -47,7 +50,7 @@ header {
 
 main {
     flex: 1 1 0rem;
-    max-width: 50rem;
+    max-width: $content-max-width;
     margin: 0 auto;
 }
 

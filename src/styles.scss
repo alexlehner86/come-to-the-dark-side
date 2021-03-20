@@ -8,9 +8,9 @@ body {
 #app-container.special-dark-mode {
     max-width: 100%;
     margin: 0;
+    background: black;
 }
 #app-container.special-dark-mode * {
-    pointer-events: none;
     user-select: none;
     background: black;
     color: black;
@@ -23,6 +23,9 @@ body {
         // I forced myself to write this to simulate how a blind person would experience this website (see README.md) ... it still hurt!
         outline: none;
     }
+}
+#app-container.special-dark-mode img {
+    opacity: 0;
 }
 
 button {
@@ -52,4 +55,11 @@ a[href]:focus,
 a[href]:hover {
     outline: 0.15rem solid black;
     outline-offset: 1px;
+}
+a[href].router-link-active {
+    background: white;
+}
+
+li:not(:last-of-type) {
+    margin-bottom: 0.5rem;
 }

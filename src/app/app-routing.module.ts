@@ -6,10 +6,10 @@ import { FormExampleComponent } from './pages/form-example/form-example.componen
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'facts', component: AccessibilityFactsComponent },
     { path: 'form', component: FormExampleComponent },
-    { path: '**', redirectTo: '/' },
+    { path: '**', redirectTo: '/home' },
 ];
 
 @NgModule({

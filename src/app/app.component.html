@@ -15,23 +15,23 @@
             aria-label="Main Navigation"
         >
             <a
-                [routerLink]="['/']"
+                [routerLink]="['/home']"
                 routerLinkActive="router-link-active"
-            >
-                Home
-            </a>
+                #rla1="routerLinkActive"
+                [appCurrentPage]="rla1.isActive"
+            >Home</a>
             <a
                 [routerLink]="['/facts']"
                 routerLinkActive="router-link-active"
-            >
-                Web Accessibility Facts
-            </a>
+                #rla2="routerLinkActive"
+                [appCurrentPage]="rla2.isActive"
+            >Web Accessibility Facts</a>
             <a
                 [routerLink]="['/form']"
                 routerLinkActive="router-link-active"
-            >
-                Form Example
-            </a>
+                #rla3="routerLinkActive"
+                [appCurrentPage]="rla3.isActive"
+            >Form Example</a>
         </nav>
     </div>
 </header>
