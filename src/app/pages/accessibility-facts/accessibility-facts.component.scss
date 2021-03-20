@@ -1,6 +1,8 @@
+@import "src/styles/base/variables.scss";
+
 :host {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     @media screen and (max-width: 45rem) {
         flex-direction: column;
         aside {
@@ -10,14 +12,13 @@
     }
 }
 
-$image-width: 15rem;
 figure {
     float: right;
-    width: $image-width;
+    width: $article-image-width;
     margin: 0 0 2rem 2rem;
     font-size: 0.8rem;
     img {
-        width: $image-width;
+        width: $article-image-width;
     }
 }
 
@@ -32,6 +33,9 @@ aside {
         font-size: 1.1rem;
         text-transform: uppercase;
         margin-top: 0;
+    }
+    p:last-of-type {
+        margin-bottom: 0;
     }
     .highlight {
         font-style: italic;

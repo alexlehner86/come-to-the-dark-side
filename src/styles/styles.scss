@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@import "src/styles/base/mixins.scss";
+@import "src/styles/base/variables.scss";
 
 body {
     margin: 0;
@@ -31,30 +32,29 @@ body {
 button {
     margin: 0;
     padding: 0.5rem;
-    background: rgb(115, 7, 158);
+    background: $primary-color;
     color: white;
     border: none;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    -webkit-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.75);
-    box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.75);
+    @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.75));
     cursor: pointer;
     &:focus,
     &:hover {
         outline: 0.15rem solid black;
         outline-offset: 1px;
-        -webkit-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.25);
-        -moz-box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.25);
-        box-shadow: 8px 8px 0px -3px rgba(0, 0, 0, 0.25);
+        @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.25));
     }
 }
 
-a[href]:focus,
-a[href]:hover {
-    outline: 0.15rem solid black;
-    outline-offset: 1px;
+a[href] {
+    color: $primary-color;
+    &:focus,
+    &:hover {
+        outline: 0.15rem solid black;
+        outline-offset: 1px;
+    }
 }
 a[href].router-link-active {
     background: white;
