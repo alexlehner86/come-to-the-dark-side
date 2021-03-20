@@ -56,9 +56,6 @@ a[href] {
         outline-offset: 1px;
     }
 }
-a[href].router-link-active {
-    background: white;
-}
 
 li:not(:last-of-type) {
     margin-bottom: 0.5rem;

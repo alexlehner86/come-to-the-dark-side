@@ -1,3 +1,13 @@
+<a
+    [href]="skipLinkToMain"
+    accesskey="1"
+    class="skip-link"
+>Skip to Main Content (Access Key 1)</a>
+<a
+    [href]="skipLinkToNavigation"
+    accesskey="2"
+    class="skip-link"
+>Skip to Navigation (Access Key 2)</a>
 <header>
     <div class="header-content">
         <div class="first-line">
@@ -11,31 +21,40 @@
             </button>
         </div>
         <nav
+            [id]="navigationId"
             class="main-navigation"
             aria-label="Main Navigation"
         >
-            <a
-                [routerLink]="['/home']"
-                routerLinkActive="router-link-active"
-                #rla1="routerLinkActive"
-                [appCurrentPage]="rla1.isActive"
-            >Home</a>
-            <a
-                [routerLink]="['/facts']"
-                routerLinkActive="router-link-active"
-                #rla2="routerLinkActive"
-                [appCurrentPage]="rla2.isActive"
-            >Web Accessibility Facts</a>
-            <a
-                [routerLink]="['/form']"
-                routerLinkActive="router-link-active"
-                #rla3="routerLinkActive"
-                [appCurrentPage]="rla3.isActive"
-            >Form Example</a>
+            <ul>
+                <li>
+                    <a
+                        [routerLink]="['/home']"
+                        routerLinkActive
+                        #rla1="routerLinkActive"
+                        [appCurrentPage]="rla1.isActive"
+                    >Home</a>
+                </li>
+                <li>
+                    <a
+                        [routerLink]="['/facts']"
+                        routerLinkActive
+                        #rla2="routerLinkActive"
+                        [appCurrentPage]="rla2.isActive"
+                    >Web Accessibility Facts</a>
+                </li>
+                <li>
+                    <a
+                        [routerLink]="['/form']"
+                        routerLinkActive
+                        #rla3="routerLinkActive"
+                        [appCurrentPage]="rla3.isActive"
+                    >Form Example</a>
+                </li>
+            </ul>
         </nav>
     </div>
 </header>
-<main>
+<main [id]="mainContentId">
     <router-outlet></router-outlet>
 </main>
 <footer>
@@ -44,6 +63,7 @@
         href="https://twitter.com/hashtag/a11y"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Search for hashtag A 11 Y on twitter"
     >#a11y</a>
     project by
     <a

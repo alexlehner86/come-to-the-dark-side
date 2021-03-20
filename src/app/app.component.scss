@@ -1,4 +1,5 @@
 @import "src/styles/base/mixins.scss";
+@import "src/styles/base/placeholders.scss";
 @import "src/styles/base/variables.scss";
 
 :host {
@@ -7,17 +8,21 @@
     min-height: 100vh;
 }
 
+a.skip-link:not(:focus) {
+    @extend %screenReaderOnly;
+}
+a.skip-link:focus {
+    margin: 0.5rem;
+    align-self: center;
+}
+
 header,
 main {
     padding: 1rem;
 }
 
-header,
-footer {
-    @include boxShadow(0px, 2px, 5px, 0px, rgba(0, 0, 0, 0.75));
-}
-
 header {
+    @include boxShadow(0px, 2px, 5px, 0px, rgba(0, 0, 0, 0.75));
     flex: 0 0 4rem;
     background-color: $primary-bg-color;
     .header-content {
@@ -28,21 +33,30 @@ header {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-bottom: 1rem;
     }
     h1 {
         text-transform: uppercase;
         letter-spacing: 0.1em;
         margin: 0;
     }
-    nav {
-        margin-top: 1rem;
+    nav > ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        li {
+            list-style: none;
+            &:not(:last-of-type) {
+                margin-right: 0.5rem;
+            }
+        }
         a[href] {
             padding: 0.5rem;
             color: black;
             font-weight: bold;
-            &:not(:last-of-type) {
-                margin-right: 0.5rem;
-            }
+        }
+        a[aria-current="page"] {
+            background: white;
         }
     }
 }
