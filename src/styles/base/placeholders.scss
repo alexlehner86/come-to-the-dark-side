@@ -8,3 +8,8 @@
     padding: 0;
     position: absolute;
 }
+
+%basicOutline {
+    outline: 0.15rem solid black;
+    outline-offset: 1px;
+}

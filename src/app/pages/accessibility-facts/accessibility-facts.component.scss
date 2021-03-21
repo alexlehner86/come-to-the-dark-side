@@ -43,6 +43,10 @@ aside {
         font-size: 1.1rem;
         text-transform: uppercase;
         margin-top: 0;
+        &::before {
+            border-left: none;
+            margin: 0;
+        }
     }
     p:last-of-type {
         margin-bottom: 0;

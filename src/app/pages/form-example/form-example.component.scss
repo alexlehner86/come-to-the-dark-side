@@ -1,13 +1,31 @@
 @import "src/styles/base/mixins.scss";
+@import "src/styles/base/placeholders.scss";
 @import "src/styles/base/variables.scss";
 
-.form-group,
-.radio-group {
-    margin-bottom: 1rem;
-    max-width: 28rem;
+form {
+    max-width: 30rem;
+    margin: 0 auto;
+    &.show-error-texts {
+        .form-group input.ng-invalid {
+            border: 0.2rem solid $error-color;
+        }
+        input.ng-invalid + .error-text {
+            display: block;
+        }
+    }
+}
+
+.error-text {
+    display: none;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    padding-right: 0.5rem;
+    color: $error-color;
+    text-align: right;
 }
 
 .form-group {
+    margin-bottom: 1rem;
     label {
         display: inline-block;
         min-width: 10rem;
@@ -20,7 +38,6 @@
         border: 0.2rem solid $primary-color;
         &:focus {
             outline: none;
-            border: 0.2rem solid #ba0cc7;
             @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.5));
         }
     }
@@ -31,9 +48,14 @@
     flex-wrap: wrap;
     .option {
         display: flex;
-        &:not(:last-child) {
-            margin-right: 1rem;
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+        label {
+            margin-left: 0.25rem;
         }
+    }
+    input:focus {
+        @extend %basicOutline;
     }
 }
 
@@ -42,19 +64,11 @@
     justify-content: flex-end;
 }
 
-.error-text {
-    display: none;
-    margin-top: 0.25rem;
-    margin-bottom: 0;
-    color: $error-color;
-    text-align: right;
-}
-
-form.is-submitted {
-    .form-group input.ng-invalid {
-        border: 0.2rem solid $error-color;
-    }
-    input.ng-invalid + .error-text {
-        display: block;
-    }
+.success-message {
+    padding: 0.5rem;
+    border: 0.25rem solid $success-color;
+    color: $success-color;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

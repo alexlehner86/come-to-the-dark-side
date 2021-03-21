@@ -1,11 +1,78 @@
 @import "src/styles/base/mixins.scss";
+@import "src/styles/base/placeholders.scss";
 @import "src/styles/base/variables.scss";
 
 body {
     margin: 0;
     padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif
 }
 
+main h1::before {
+    content: "";
+    border-left: 0.25rem solid $primary-color;
+    margin-right: 0.4rem;
+}
+
+h1, h2, h3, h4, h5, h6, button, legend {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 0.025em;
+}
+
+p, ul, ol {
+    line-height: 1.4em;
+}
+
+button {
+    margin: 0;
+    padding: 0.5rem;
+    background: $primary-color;
+    color: white;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+    &:focus,
+    &:hover {
+        @extend %basicOutline;
+        @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.25));
+    }
+}
+
+a[href] {
+    color: $primary-color;
+    &:focus,
+    &:hover {
+        @extend %basicOutline;
+    }
+}
+
+li:not(:last-of-type) {
+    margin-bottom: 0.5rem;
+}
+
+fieldset {
+    border: none;
+    legend {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
+
+.cdk-visually-hidden {
+    @extend %screenReaderOnly;
+}
+
+.hidden {
+    display: none;
+}
+
+/////////////////////////////////////////////////////////
+// Special dark mode for hiding all visual information
+/////////////////////////////////////////////////////////
 #app-container.special-dark-mode {
     max-width: 100%;
     margin: 0;
@@ -25,47 +92,10 @@ body {
         outline: none;
     }
 }
-#app-container.special-dark-mode img {
+#app-container.special-dark-mode img,
+#app-container.special-dark-mode input[type="radio"] {
     opacity: 0;
 }
-
-button {
-    margin: 0;
-    padding: 0.5rem;
-    background: $primary-color;
-    color: white;
-    border: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.75));
-    cursor: pointer;
-    &:focus,
-    &:hover {
-        outline: 0.15rem solid black;
-        outline-offset: 1px;
-        @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.25));
-    }
-}
-
-a[href] {
-    color: $primary-color;
-    &:focus,
-    &:hover {
-        outline: 0.15rem solid black;
-        outline-offset: 1px;
-    }
-}
-
-li:not(:last-of-type) {
-    margin-bottom: 0.5rem;
-}
-
-fieldset {
-    border: none;
-    legend {
-        margin: 0.5rem 0;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
+#app-container.special-dark-mode h1::before {
+    border-left: none;
 }

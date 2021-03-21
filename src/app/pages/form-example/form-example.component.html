@@ -1,6 +1,12 @@
+<h1>Form Example</h1>
+<p>
+    The following form is only a demonstration of how to create an accessible form.
+    It only validates the input (on client side) in order to show error messages. The data
+    you enter will not be sent to a server, stored or processed anywhere.
+</p>
 <form
     #exampleForm="ngForm"
-    [ngClass]="{'is-submitted': isSubmitted}"
+    [ngClass]="{'show-error-texts': areErrorTextsVisible, 'hidden': isSuccessfullySubmitted}"
     (ngSubmit)="onSubmit(exampleForm)"
 >
     <fieldset>
@@ -22,7 +28,7 @@
                 class="error-text"
                 role="alert"
             >
-                Please enter your full name.
+                Please enter your full name
             </p>
         </div>
         <div class="form-group">
@@ -43,7 +49,7 @@
                 class="error-text"
                 role="alert"
             >
-                Please enter your e-mail address in the format "[username]@[server].[domain]". Example: alex@gmail.com".
+                Please enter your e-mail address in the format "[username]@[server].[domain]". Example: alex@gmail.com
             </p>
         </div>
         <div class="form-group">
@@ -78,3 +84,9 @@
         <button type="submit">Submit</button>
     </div>
 </form>
+<p
+    *ngIf="isSuccessfullySubmitted"
+    class="success-message"
+>
+    {{successMessage}}
+</p>
