@@ -33,6 +33,7 @@ header {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 1rem;
     }
     h1 {
@@ -44,6 +45,7 @@ header {
         margin: 0;
         padding: 0;
         display: flex;
+        flex-wrap: wrap;
         li {
             list-style: none;
             &:not(:last-of-type) {
@@ -54,6 +56,7 @@ header {
             padding: 0.5rem;
             color: black;
             font-weight: bold;
+            white-space: nowrap;
         }
         a[aria-current="page"] {
             background: white;
@@ -71,4 +74,27 @@ footer {
     background-color: lightgrey;
     padding: 0.5rem 1rem;
     text-align: center;
+}
+
+@media screen and (max-width: $mobile-breakpoint-medium) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 32rem) {
+    header {
+        .first-line {
+            display: block;
+            button {
+                margin-top: 0.5rem;
+            }
+        }
+        h1 {
+            font-size: 1.3rem;
+        }
+        nav > ul li {
+            margin-top: 0.5rem;
+        }
+    }
 }
