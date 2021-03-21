@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AccessibilityFactsComponent } from './accessibility-facts/accessibility-facts.component';
 import { FormExampleComponent } from './form-example/form-example.component';
@@ -9,6 +11,10 @@ import { HomeComponent } from './home/home.component';
         AccessibilityFactsComponent,
         FormExampleComponent,
         HomeComponent,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
     ],
     exports: [
         AccessibilityFactsComponent,

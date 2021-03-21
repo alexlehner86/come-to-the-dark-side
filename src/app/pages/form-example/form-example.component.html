@@ -1,1 +1,80 @@
-<p>form-example works!</p>
+<form
+    #exampleForm="ngForm"
+    [ngClass]="{'is-submitted': isSubmitted}"
+    (ngSubmit)="onSubmit(exampleForm)"
+>
+    <fieldset>
+        <legend>Contact Information</legend>
+        <div class="form-group">
+            <label for="full-name">
+                Full Name
+                <abbr title="required">*</abbr>
+            </label>
+            <input
+                id="full-name"
+                type="text"
+                autocomplete="name"
+                name="fullName"
+                required
+                [(ngModel)]="fullName"
+            >
+            <p
+                class="error-text"
+                role="alert"
+            >
+                Please enter your full name.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="email">
+                E-Mail
+                <abbr title="required">*</abbr>
+            </label>
+            <input
+                id="email"
+                type="email"
+                autocomplete="email"
+                name="email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                [(ngModel)]="email"
+            >
+            <p
+                class="error-text"
+                role="alert"
+            >
+                Please enter your e-mail address in the format "[username]@[server].[domain]". Example: alex@gmail.com".
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number</label>
+            <input
+                id="phone-number"
+                type="tel"
+                name="phoneNumber"
+                autocomplete="tel"
+                [(ngModel)]="phoneNumber"
+            >
+        </div>
+    </fieldset>
+    <fieldset class="radio-group">
+        <legend>Favorite Screen Reader</legend>
+        <div
+            *ngFor="let screenReader of screenReaders; index as radioButtonIndex"
+            class="option"
+        >
+            <input
+                [id]="'fav-screen-reader' + radioButtonIndex"
+                type="radio"
+                name="favoriteScreenReader"
+                [value]="screenReader"
+                required
+                [(ngModel)]="favoriteScreenReader"
+            >
+            <label [for]="'fav-screen-reader' + radioButtonIndex">{{screenReader}}</label>
+        </div>
+    </fieldset>
+    <div class="form-actions">
+        <button type="submit">Submit</button>
+    </div>
+</form>

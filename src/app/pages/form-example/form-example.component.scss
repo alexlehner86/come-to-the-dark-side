@@ -1,0 +1,60 @@
+@import "src/styles/base/mixins.scss";
+@import "src/styles/base/variables.scss";
+
+.form-group,
+.radio-group {
+    margin-bottom: 1rem;
+    max-width: 28rem;
+}
+
+.form-group {
+    label {
+        display: inline-block;
+        min-width: 10rem;
+        text-align: right;
+        margin-right: 1rem;
+    }
+    input {
+        min-width: 15rem;
+        padding: 0.5rem;
+        border: 0.2rem solid $primary-color;
+        &:focus {
+            outline: none;
+            border: 0.2rem solid #ba0cc7;
+            @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.5));
+        }
+    }
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    .option {
+        display: flex;
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.error-text {
+    display: none;
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    color: $error-color;
+    text-align: right;
+}
+
+form.is-submitted {
+    .form-group input.ng-invalid {
+        border: 0.2rem solid $error-color;
+    }
+    input.ng-invalid + .error-text {
+        display: block;
+    }
+}

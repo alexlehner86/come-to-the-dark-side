@@ -60,3 +60,12 @@ a[href] {
 li:not(:last-of-type) {
     margin-bottom: 0.5rem;
 }
+
+fieldset {
+    border: none;
+    legend {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
