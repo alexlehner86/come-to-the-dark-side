@@ -1,4 +1,5 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
     private readonly specialDarkModeCssClass = 'special-dark-mode';
 
     constructor(
-        private router: Router
+        private router: Router,
+        @Inject(DOCUMENT) private document: Document
     ) { }
 
     public ngOnInit(): void {
@@ -33,8 +35,9 @@ export class AppComponent implements OnInit {
             const mainContentAnchor = '#' + this.mainContentId;
             const navigationAnchor = '#' + this.navigationId;
             if (!this.router.url.endsWith(mainContentAnchor) && !this.router.url.endsWith(navigationAnchor)) {
-                this.skipLinkToMain = `${this.router.url}${mainContentAnchor}`;
-                this.skipLinkToNavigation = `${this.router.url}${navigationAnchor}`;
+                const pathname = this.document.defaultView?.location.pathname;
+                this.skipLinkToMain = `${pathname}${mainContentAnchor}`;
+                this.skipLinkToNavigation = `${pathname}${navigationAnchor}`;
             }
         });
     }
