@@ -6,7 +6,7 @@
 </p>
 <form
     #exampleForm="ngForm"
-    [ngClass]="{'show-error-texts': areErrorTextsVisible, 'hidden': isSuccessfullySubmitted}"
+    [ngClass]="{'show-error-texts': markInvalidFields, 'hidden': isSuccessfullySubmitted}"
     (ngSubmit)="onSubmit(exampleForm)"
 >
     <fieldset>
@@ -17,16 +17,19 @@
                 <abbr title="required">*</abbr>
             </label>
             <input
+                #fullNameInputElementRef
                 id="full-name"
                 type="text"
                 autocomplete="name"
                 name="fullName"
                 required
                 [(ngModel)]="fullName"
+                #fullNameControl="ngModel"
+                [appMarkInvalid]="!fullNameControl.valid && markInvalidFields ? 'full-name-error' : ''"
             >
             <p
+                id="full-name-error"
                 class="error-text"
-                role="alert"
             >
                 Please enter your full name
             </p>
@@ -37,6 +40,7 @@
                 <abbr title="required">*</abbr>
             </label>
             <input
+                #emailInputElementRef
                 id="email"
                 type="email"
                 autocomplete="email"
@@ -44,10 +48,12 @@
                 required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 [(ngModel)]="email"
+                #emailControl="ngModel"
+                [appMarkInvalid]="!emailControl.valid && markInvalidFields ? 'email-error' : ''"
             >
             <p
+                id="email-error"
                 class="error-text"
-                role="alert"
             >
                 Please enter your e-mail address in the format "[username]@[server].[domain]". Example: alex@gmail.com
             </p>

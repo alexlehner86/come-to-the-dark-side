@@ -1,5 +1,5 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -9,11 +9,14 @@ import { NgForm } from '@angular/forms';
 })
 export class FormExampleComponent {
 
-    public areErrorTextsVisible = false;
+    @ViewChild('emailInputElementRef') emailInput: ElementRef | undefined;
+    @ViewChild('fullNameInputElementRef') fullNameInput: ElementRef | undefined;
+
     public email = '';
     public favoriteScreenReader = '';
     public fullName = '';
     public isSuccessfullySubmitted = false;
+    public markInvalidFields = false;
     public phoneNumber = '';
     public successMessage = '';
 
@@ -28,11 +31,17 @@ export class FormExampleComponent {
     }
 
     public onSubmit(exampleForm: NgForm): void {
-        this.areErrorTextsVisible = true;
         if (exampleForm.valid) {
             this.successMessage = `Congratulations ${this.fullName}! You've successfully submitted the form.`;
             this.isSuccessfullySubmitted = true;
             this.liveAnnouncer.announce(this.successMessage);
+        } else {
+            this.markInvalidFields = true;
+            if (!this.fullName) {
+                this.fullNameInput?.nativeElement.focus();
+            } else {
+                this.emailInput?.nativeElement.focus();
+            }
         }
     }
 }
