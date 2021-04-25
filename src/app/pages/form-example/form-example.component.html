@@ -89,7 +89,7 @@
     <fieldset class="option-group">
         <legend>Which Accessibilty Testing Tools Do You Know?</legend>
         <div
-            *ngFor="let tool of knownTestingTools; index as checkboxIndex"
+            *ngFor="let tool of testingTools; index as checkboxIndex"
             class="option"
         >
             <input
@@ -106,9 +106,15 @@
         <button type="submit">Submit</button>
     </div>
 </form>
-<p
+<div
     *ngIf="isSuccessfullySubmitted"
     class="success-message"
 >
-    {{successMessage}}
-</p>
+    <p>{{successMessage}}</p>
+    <p class="smaller">
+        You're favorite screen reader is {{favoriteScreenReader}}.
+    </p>
+    <p class="smaller">
+        You know the following testing tools: {{checkedTestingTools ? checkedTestingTools : '(none)'}}.
+    </p>
+</div>

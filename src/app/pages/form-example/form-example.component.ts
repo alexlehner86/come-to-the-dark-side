@@ -12,11 +12,15 @@ export class FormExampleComponent {
     @ViewChild('emailInputElementRef') emailInput: ElementRef | undefined;
     @ViewChild('fullNameInputElementRef') fullNameInput: ElementRef | undefined;
 
+    public checkedTestingTools = '';
     public email = '';
     public favoriteScreenReader = '';
     public fullName = '';
     public isSuccessfullySubmitted = false;
-    public knownTestingTools: { name: string, checked: boolean }[] = [
+    public markInvalidFields = false;
+    public phoneNumber = '';
+    public successMessage = '';
+    public testingTools: { name: string, checked: boolean }[] = [
         { name: 'Accessibility Insights', checked: false },
         { name: 'axe (deque)', checked: false },
         { name: 'Lighthouse (Chrome DevTools)', checked: false },
@@ -24,9 +28,6 @@ export class FormExampleComponent {
         { name: 'WAVE', checked: false },
         { name: 'W3C Validator', checked: false },
     ];
-    public markInvalidFields = false;
-    public phoneNumber = '';
-    public successMessage = '';
 
     public readonly screenReaders: string[] = [
         'JAWS', 'NVDA', 'TalkBack', 'VoiceOver', 'I love them all!'
@@ -40,6 +41,7 @@ export class FormExampleComponent {
 
     public onSubmit(exampleForm: NgForm): void {
         if (exampleForm.valid) {
+            this.checkedTestingTools = this.testingTools.filter(tool => tool.checked).map(tool => tool.name).join(', ');
             this.successMessage = `Congratulations ${this.fullName}! You've successfully submitted the form.`;
             this.isSuccessfullySubmitted = true;
             this.liveAnnouncer.announce(this.successMessage);

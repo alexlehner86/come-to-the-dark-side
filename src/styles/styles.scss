@@ -86,15 +86,26 @@ input[type="checkbox"] {
     /* Set here so that Windows' High-Contrast Mode can override */
     color: black;
 }
-input[type="checkbox"]::before {
-    content: "✔";
+input[type="checkbox"]::before,
+input[type="checkbox"]::after {
+    content: '';
     position: absolute;
-    font-size: 1.1em;
-    right: 0.05em;
-    top: -0.25em;
+    top: 50%;
+    left: 50%;
+    width: 1.1em;
+    height: 0.25em;
+    background-color: black;
+    border-radius: 0.1em;
     visibility: hidden;
 }
-input[type="checkbox"]:checked::before {
+input[type="checkbox"]::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+input[type="checkbox"]::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+input[type="checkbox"]:checked::before,
+input[type="checkbox"]:checked::after {
     /* Use `visibility` instead of `display` to avoid recalculating layout */
     visibility: visible;
 }
@@ -114,18 +125,20 @@ input[type="radio"] {
     color: black;
 }
 input[type="radio"]::before {
-    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     content: "";
-    width: 0.75em;
-    height: 0.75em;
+    width: 0.7em;
+    height: 0.7em;
     border-radius: 50%;
     background-color: $primary-color;
-    transform: translate(0.15em, 0.15em) scale(0);
+    transform: translate(-50%, -50%) scale(0);
     transform-origin: center;
     transition: all 0.3s ease-in;
 }
 input[type="radio"]:checked::before {
-    transform: translate(0.15em, 0.15em) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
 }
 input[type=radio]:focus {
