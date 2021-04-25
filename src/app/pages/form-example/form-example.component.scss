@@ -37,25 +37,24 @@ form {
         padding: 0.5rem;
         border: 0.2rem solid $primary-color;
         &:focus {
+            border: 0.2rem solid $primary-color-light;
             outline: none;
-            @include boxShadow(8px, 8px, 0px, -3px, rgba(0, 0, 0, 0.5));
+            @include boxShadow(0.5rem, 0.5rem, 0, -0.2rem, rgba(0, 0, 0, 0.5));
         }
     }
 }
 
-.radio-group {
+.option-group {
     display: flex;
     flex-wrap: wrap;
     .option {
         display: flex;
+        align-items: center;
         margin-left: 1rem;
         margin-bottom: 0.5rem;
         label {
             margin-left: 0.25rem;
         }
-    }
-    input:focus {
-        @extend %basicOutline;
     }
 }
 

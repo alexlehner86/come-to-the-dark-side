@@ -53,6 +53,17 @@ li:not(:last-of-type) {
     margin-bottom: 0.5rem;
 }
 
+.cdk-visually-hidden {
+    @extend %screenReaderOnly;
+}
+
+.hidden {
+    display: none;
+}
+
+/////////////////////////////////////////////////////////
+// Custom styling of native form elements
+/////////////////////////////////////////////////////////
 fieldset {
     border: none;
     legend {
@@ -62,12 +73,67 @@ fieldset {
     }
 }
 
-.cdk-visually-hidden {
-    @extend %screenReaderOnly;
+input {
+    -webkit-appearance: none;
+    appearance: none;
 }
 
-.hidden {
-    display: none;
+input[type="checkbox"] {
+    position: relative;
+    width: 1.4em;
+    height: 1.4em;
+    border: 0.15rem solid $primary-color;
+    /* Set here so that Windows' High-Contrast Mode can override */
+    color: black;
+}
+input[type="checkbox"]::before {
+    content: "✔";
+    position: absolute;
+    font-size: 1.1em;
+    right: 0.05em;
+    top: -0.25em;
+    visibility: hidden;
+}
+input[type="checkbox"]:checked::before {
+    /* Use `visibility` instead of `display` to avoid recalculating layout */
+    visibility: visible;
+}
+input[type=checkbox]:focus {
+    border: 0.15rem solid $primary-color-light;
+    outline: none;
+    @include boxShadow(0.2rem, 0.2rem, 0, 0, rgba(0, 0, 0, 0.5));
+}
+
+input[type="radio"] {
+    position: relative;
+    width: 1.4em;
+    height: 1.4em;
+    border: 0.15rem solid $primary-color;
+    border-radius: 50%;
+    /* Set here so that Windows' High-Contrast Mode can override */
+    color: black;
+}
+input[type="radio"]::before {
+    display: block;
+    content: "";
+    width: 0.75em;
+    height: 0.75em;
+    border-radius: 50%;
+    background-color: $primary-color;
+    transform: translate(0.15em, 0.15em) scale(0);
+    transform-origin: center;
+    transition: all 0.3s ease-in;
+}
+input[type="radio"]:checked::before {
+    transform: translate(0.15em, 0.15em) scale(1);
+    transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
+}
+input[type=radio]:focus {
+    border: 0.15rem solid $primary-color-light;
+    outline: none;
+}
+input[type="radio"]:focus::before {
+    background-color: $primary-color-light;
 }
 
 /////////////////////////////////////////////////////////
@@ -93,7 +159,7 @@ fieldset {
     }
 }
 #app-container.special-dark-mode img,
-#app-container.special-dark-mode input[type="radio"] {
+#app-container.special-dark-mode input {
     opacity: 0;
 }
 #app-container.special-dark-mode h1::before {

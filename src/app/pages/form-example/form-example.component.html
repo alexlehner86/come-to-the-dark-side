@@ -69,7 +69,7 @@
             >
         </div>
     </fieldset>
-    <fieldset class="radio-group">
+    <fieldset class="option-group">
         <legend>Favorite Screen Reader</legend>
         <div
             *ngFor="let screenReader of screenReaders; index as radioButtonIndex"
@@ -84,6 +84,22 @@
                 [(ngModel)]="favoriteScreenReader"
             >
             <label [for]="'fav-screen-reader' + radioButtonIndex">{{screenReader}}</label>
+        </div>
+    </fieldset>
+    <fieldset class="option-group">
+        <legend>Which Accessibilty Testing Tools Do You Know?</legend>
+        <div
+            *ngFor="let tool of knownTestingTools; index as checkboxIndex"
+            class="option"
+        >
+            <input
+                [id]="'known-testing-tool' + checkboxIndex"
+                type="checkbox"
+                [name]="'known-testing-tool' + checkboxIndex"
+                [value]="tool.name"
+                [(ngModel)]="tool.checked"
+            >
+            <label [for]="'known-testing-tool' + checkboxIndex">{{tool.name}}</label>
         </div>
     </fieldset>
     <div class="form-actions">

@@ -16,6 +16,14 @@ export class FormExampleComponent {
     public favoriteScreenReader = '';
     public fullName = '';
     public isSuccessfullySubmitted = false;
+    public knownTestingTools: { name: string, checked: boolean }[] = [
+        { name: 'Accessibility Insights', checked: false },
+        { name: 'axe (deque)', checked: false },
+        { name: 'Lighthouse (Chrome DevTools)', checked: false },
+        { name: 'tota11y', checked: false },
+        { name: 'WAVE', checked: false },
+        { name: 'W3C Validator', checked: false },
+    ];
     public markInvalidFields = false;
     public phoneNumber = '';
     public successMessage = '';
