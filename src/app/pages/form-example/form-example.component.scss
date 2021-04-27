@@ -6,7 +6,7 @@ form {
     max-width: 30rem;
     margin: 0 auto;
     &.show-error-texts {
-        .form-group input.ng-invalid {
+        .form-group input:not(:focus).ng-invalid {
             border: 0.2rem solid $error-color;
         }
         input.ng-invalid + .error-text {
@@ -32,14 +32,17 @@ form {
         text-align: right;
         margin-right: 1rem;
     }
-    input {
+    input, select, .select-wrapper {
+        display: inline-block;
         min-width: 15rem;
+    }
+    input, select {
         padding: 0.5rem;
         border: 0.2rem solid $primary-color;
         &:focus {
             border: 0.2rem solid $primary-color-light;
             outline: none;
-            @include boxShadow(0.5rem, 0.5rem, 0, -0.2rem, rgba(0, 0, 0, 0.5));
+            @include boxShadow(0.5rem, 0.5rem, 0.1rem, -0.2rem, rgba(0, 0, 0, 0.4));
         }
     }
 }

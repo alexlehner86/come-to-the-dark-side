@@ -14,6 +14,7 @@ export class FormExampleComponent {
 
     public checkedTestingTools = '';
     public email = '';
+    public gender = '';
     public favoriteScreenReader = '';
     public fullName = '';
     public isSuccessfullySubmitted = false;
