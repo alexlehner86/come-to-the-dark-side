@@ -81,7 +81,7 @@ input, select {
 /* Define custom dropdown arrow for select elements */
 select {
     background-color: white;
-    background-image: url('/assets/icon/custom_arrow_for_select.svg');
+    background-image: url('^assets/icon/custom_arrow_for_select.svg');
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
