@@ -78,19 +78,13 @@ input, select {
     appearance: none;
     box-sizing: border-box;
 }
-/* Wrap selects in a div with this class to add the down arrow */
-.select-wrapper {
-    position: relative;
-}
-.select-wrapper::after {
-    position: absolute;
-    content: "▼";
-    color: #333;
-    font-size: 1rem;
-    top: 50%;
-    right: 0.75rem;
-    transform: translateY(-50%);
-    pointer-events: none;
+/* Define custom dropdown arrow for select elements */
+select {
+    background-color: white;
+    background-image: url('/assets/icon/custom_arrow_for_select.svg');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 input[type="checkbox"] {
@@ -99,7 +93,7 @@ input[type="checkbox"] {
     height: 1.4em;
     border: 0.15rem solid $primary-color;
     /* Set here so that Windows' High-Contrast Mode can override */
-    color: black;
+    color: black; 
 }
 input[type="checkbox"]::before,
 input[type="checkbox"]::after {
@@ -159,6 +153,7 @@ input[type="radio"]:checked::before {
 input[type=radio]:focus {
     border: 0.15rem solid $primary-color-light;
     outline: none;
+    @include boxShadow(0.15rem, 0.15rem, 0.1rem, 0, rgba(0, 0, 0, 0.4));
 }
 input[type="radio"]:focus::before {
     background-color: $primary-color-light;

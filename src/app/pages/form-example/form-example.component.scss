@@ -32,7 +32,7 @@ form {
         text-align: right;
         margin-right: 1rem;
     }
-    input, select, .select-wrapper {
+    input, select {
         display: inline-block;
         min-width: 15rem;
     }
@@ -44,6 +44,9 @@ form {
             outline: none;
             @include boxShadow(0.5rem, 0.5rem, 0.1rem, -0.2rem, rgba(0, 0, 0, 0.4));
         }
+    }
+    select {
+        padding-right: 2rem;
     }
 }
 

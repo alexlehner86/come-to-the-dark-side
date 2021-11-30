@@ -70,18 +70,16 @@
         </div>
         <div class="form-group">
             <label for="gender-select">Gender</label>
-            <div class="select-wrapper">
-                <select
-                    id="gender-select"
-                    name="gender"
-                    [(ngModel)]="gender"
-                >
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="other">Other</option>
-                    <option value="notsay">Prefer not to say</option>
-                </select>
-            </div>
+            <select
+                id="gender-select"
+                name="gender"
+                [(ngModel)]="gender"
+            >
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="other">Other</option>
+                <option value="notsay">Prefer not to say</option>
+            </select>
         </div>
     </fieldset>
     <fieldset class="option-group">
@@ -102,7 +100,9 @@
         </div>
     </fieldset>
     <fieldset class="option-group">
-        <legend>Which Accessibilty Testing Tools Do You Know?</legend>
+        <legend>
+            Which Accessibilty Testing Tools Do You Know?
+        </legend>
         <div
             *ngFor="let tool of testingTools; index as checkboxIndex"
             class="option"
