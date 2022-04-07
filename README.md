@@ -4,7 +4,7 @@ What does it feel like to be blind? How can you navigate a website and read the 
 
 This project wants to enable all users to experience a website without visual input, relying only on the feedback a screen reader provides. Turn everything black via the "Go Dark" button and experience the website as a blind user would. Check out the [live version](https://alexlehner86.github.io/come-to-the-dark-side/).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5 and later updated to version 13.x.x.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5 and later updated to version 13.3.2.
 
 ## Development server
 
