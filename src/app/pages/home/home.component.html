@@ -1,50 +1,113 @@
-<h1>Introduction</h1>
-<p>
-    What does it feel like to be blind? How can you navigate a website and read the content?
-    <strong>Globally, at least 2.2 billion people have a vision impairment or blindness.</strong>
-    If you're not one of them, now is your chance to put yourselves in their shoes!
-</p>
-<p>
-    This project wants to enable all users to experience a website without visual input, relying
-    only on the feedback a screen reader provides. Turn everything black via the "Go Dark" button
-    and <strong>experience the website as a blind user would</strong>.
-</p>
-<hr aria-hidden="true">
-<h2>Instructions</h2>
-<p>Follow these steps:</p>
-<ol>
-    <li>
-        Install and activate the screen reader on your device: e.g.
-        <a
-            href="https://www.nvaccess.org/download/"
-            target="_blank"
-            rel="noopener noreferrer"
-        >NVDA</a> on Windows,
-        <a
-            href="https://en.wikipedia.org/wiki/VoiceOver"
-            target="_blank"
-            rel="noopener noreferrer"
-        >VoiceOver</a> on Apple devices, and
-        <a
-            href="https://en.wikipedia.org/wiki/Google_TalkBack"
-            target="_blank"
-            rel="noopener noreferrer"
-        >TalkBack</a> on Android.
-    </li>
-    <li>
-        Familiarize yourself with the operation of the screen reader. For example,
-        NVDA offers many useful
-        <a
-            href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts"
-            target="_blank"
-            rel="noopener noreferrer"
-        >keyboard shortcuts</a>.
-    </li>
-    <li>
-        Now push the button labelled "Go Dark" in the right upper corner. This causes everything
-        to be painted black and all highlighting on focus or hover to be switched off. The only
-        way to interact with the website will be via your screen reader together with a
-        keyboard on desktop devices, or touch gestures on mobile devices.
-    </li>
-    <li>Have fun!</li>
-</ol>
+<ng-container *ngIf="isGerman">
+    <h1>Einführung</h1>
+    <p>
+        Wie fühlt es sich an, blind zu sein? Wie kann man auf einer Website navigieren und den Inhalt lesen?
+        <strong>
+            Weltweit sind etwa 2,2 Milliarden Menschen blind oder sehbeeinträchtigt.
+        </strong>
+        Wenn du nicht zu ihnen gehörst, hast du jetzt die Möglichkeit, dich in ihre Lage zu versetzen!
+    </p>
+    <p>
+        Dieses Projekt möchte es allen ermöglichen, eine Website ohne visuellen Input zu erleben und sich nur
+        auf das Feedback eines Screenreaders zu verlassen. Färbe alles schwarz über die Schaltfläche „Licht aus“ und
+        <strong>
+            erlebe die Website wie blinde Nutzer:innen.
+        </strong>
+    </p>
+    <hr aria-hidden="true">
+    <h2>Anleitung</h2>
+    <p>Befolge diese Schritte:</p>
+    <ol>
+        <li>
+            Installiere und aktiviere den Screenreader auf deinem Gerät: z.B.
+            <a
+                href="https://www.nvaccess.org/download/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >NVDA</a> auf Windows,
+            <a
+                href="https://en.wikipedia.org/wiki/VoiceOver"
+                target="_blank"
+                rel="noopener noreferrer"
+            >VoiceOver</a> auf Apple-Geräten, oder
+            <a
+                href="https://en.wikipedia.org/wiki/Google_TalkBack"
+                target="_blank"
+                rel="noopener noreferrer"
+            >TalkBack</a> auf Android-Geräten.
+        </li>
+        <li>
+            Mache dich mit der Bedienung des Screenreaders vertraut. Zum Beispiel bietet
+            NVDA viele nützliche
+            <a
+                href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts"
+                target="_blank"
+                rel="noopener noreferrer"
+            >Tastaturbefehle</a>.
+        </li>
+        <li>
+            Drücke nun die Schaltfläche mit der Aufschrift „Licht aus“ in der rechten oberen Ecke.
+            Dies bewirkt, dass alles schwarz gefärbt und alle Hervorhebungen z.B. beim Fokussieren
+            deaktiviert werden. Die einzige Möglichkeit, mit der Website zu interagieren, ist über den
+            Screenreader zusammen mit einer Tastatur auf Desktop-Geräten oder Touch-Gesten auf mobilen Geräten.
+        </li>
+        <li>Viel Spaß!</li>
+    </ol>
+</ng-container>
+<ng-container *ngIf="!isGerman">
+    <h1>Introduction</h1>
+    <p>
+        What does it feel like to be blind? How can you navigate a website and read the content?
+        <strong>
+            Globally, at least 2.2 billion people have a vision impairment or blindness.
+        </strong>
+        If you're not one of them, now is your chance to put yourselves in their shoes!
+    </p>
+    <p>
+        This project wants to enable all users to experience a website without visual input, relying
+        only on the feedback a screen reader provides. Turn everything black via the "Go Dark" button
+        and
+        <strong>
+            experience the website as a blind user would.
+        </strong>
+    </p>
+    <hr aria-hidden="true">
+    <h2>Instructions</h2>
+    <p>Follow these steps:</p>
+    <ol>
+        <li>
+            Install and activate the screen reader on your device: e.g.
+            <a
+                href="https://www.nvaccess.org/download/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >NVDA</a> on Windows,
+            <a
+                href="https://en.wikipedia.org/wiki/VoiceOver"
+                target="_blank"
+                rel="noopener noreferrer"
+            >VoiceOver</a> on Apple devices, and
+            <a
+                href="https://en.wikipedia.org/wiki/Google_TalkBack"
+                target="_blank"
+                rel="noopener noreferrer"
+            >TalkBack</a> on Android devices.
+        </li>
+        <li>
+            Familiarize yourself with the operation of the screen reader. For example,
+            NVDA offers many useful
+            <a
+                href="https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts"
+                target="_blank"
+                rel="noopener noreferrer"
+            >keyboard shortcuts</a>.
+        </li>
+        <li>
+            Now push the button labelled "Go Dark" in the right upper corner. This causes everything
+            to be painted black and all highlighting on focus or hover to be switched off. The only
+            way to interact with the website will be via your screen reader together with a
+            keyboard on desktop devices, or touch gestures on mobile devices.
+        </li>
+        <li>Have fun!</li>
+    </ol>
+</ng-container>
