@@ -1,4 +1,17 @@
 {
+    "footer": {
+        "part1": "Ein",
+        "part2": "Projekt von"
+    },
+    "header": {
+        "goDarkButton": "Licht aus",
+        "title": "Komm auf die dunkle Seite"
+    },
+    "page": {
+        "facts": "Fakten zu Barrierefreiheit",
+        "form": "Formular-Beispiel",
+        "home": "Startseite"
+    },
     "skipLink": {
         "main": "Zum Hauptbereich springen (Access Key 1)",
         "nav": "Zur Navigation springen (Access Key 2)"

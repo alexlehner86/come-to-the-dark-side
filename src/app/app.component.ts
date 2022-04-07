@@ -4,6 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
+import { PAGE_TITLE } from './constants/app.constants';
 
 import { FACTS_ROUTE, FORM_ROUTE, HOME_ROUTE } from './constants/routes.constants';
 
@@ -22,11 +23,12 @@ export class AppComponent implements OnInit {
     public readonly mainContentId = 'main-content';
     public readonly navigationId = 'navigation';
 
-    private readonly pageTitle = 'Come To The Dark Side';
     /**
      * Name needs to match CSS class defined in styles.scss
      */
     private readonly specialDarkModeCssClass = 'special-dark-mode';
+
+    private pageTitle = 'Come To The Dark Side';
 
     constructor(
         private route: ActivatedRoute,
@@ -61,8 +63,11 @@ export class AppComponent implements OnInit {
 
         // If URL parameter "lang" was set, then change translations to provided language
         this.route.queryParams.subscribe(params => {
-            if (params.lang) {
+            if (params.lang && ['de', 'en'].includes(params.lang)) {
                 this.translateService.use(params.lang);
+                this.pageTitle = PAGE_TITLE[params.lang];
+                // Set lang attribute of html tag for assistive technologies.
+                this.document.documentElement.setAttribute('lang', params.lang);
             }
         });
     }
@@ -70,13 +75,13 @@ export class AppComponent implements OnInit {
     private updatePageTitle(event: NavigationEnd): void {
         switch (true) {
             case event.urlAfterRedirects.endsWith(HOME_ROUTE):
-                this.titleService.setTitle(`${this.pageTitle}: Home`);
+                this.titleService.setTitle(`${this.translateService.instant('page.home')} – ${this.pageTitle}`);
                 break;
             case event.urlAfterRedirects.endsWith(FACTS_ROUTE):
-                this.titleService.setTitle(`${this.pageTitle}: Accessibilty Facts`);
+                this.titleService.setTitle(`${this.translateService.instant('page.facts')} – ${this.pageTitle}`);
                 break;
             case event.urlAfterRedirects.endsWith(FORM_ROUTE):
-                this.titleService.setTitle(`${this.pageTitle}: Form Example`);
+                this.titleService.setTitle(`${this.translateService.instant('page.form')} – ${this.pageTitle}`);
                 break;
             default:
                 this.titleService.setTitle(this.pageTitle);
@@ -87,9 +92,9 @@ export class AppComponent implements OnInit {
         const mainContentAnchor = '#' + this.mainContentId;
         const navigationAnchor = '#' + this.navigationId;
         if (!this.router.url.endsWith(mainContentAnchor) && !this.router.url.endsWith(navigationAnchor)) {
-            const pathname = this.document.defaultView?.location.pathname;
-            this.skipLinkToMain = `${pathname}${mainContentAnchor}`;
-            this.skipLinkToNavigation = `${pathname}${navigationAnchor}`;
+            const { pathname, search } = this.document.defaultView?.location ?? {};
+            this.skipLinkToMain = `${pathname}${search}${mainContentAnchor}`;
+            this.skipLinkToNavigation = `${pathname}${search}${navigationAnchor}`;
         }
     }
 }

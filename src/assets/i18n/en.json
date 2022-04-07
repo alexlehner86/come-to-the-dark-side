@@ -1,4 +1,17 @@
 {
+    "footer": {
+        "part1": "An",
+        "part2": "project by"
+    },
+    "header": {
+        "goDarkButton": "Go Dark",
+        "title": "Come to the dark side"
+    },
+    "page": {
+        "facts": "Accessibilty Facts",
+        "form": "Form Example",
+        "home": "Home"
+    },
     "skipLink": {
         "main": "Skip to Main Content (Access Key 1)",
         "nav": "Skip to Navigation (Access Key 2)"

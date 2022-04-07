@@ -3,25 +3,25 @@
     accesskey="1"
     class="skip-link"
 >
-    {{ 'skipLink.main' | translate}}
+    {{ 'skipLink.main' | translate }}
 </a>
 <a
     [href]="skipLinkToNavigation"
     accesskey="2"
     class="skip-link"
 >
-    {{ 'skipLink.nav' | translate}}
+    {{ 'skipLink.nav' | translate }}
 </a>
 <header>
     <div class="header-content">
         <div class="first-line">
-            <h1>Come to the dark side</h1>
+            <h1>{{ 'header.title' | translate }}</h1>
             <button
                 role="switch"
                 [attr.aria-checked]="isSpecialDarkModeOn"
                 (click)="onToggleDarkMode()"
             >
-                Go Dark
+                {{ 'header.goDarkButton' | translate }}
             </button>
         </div>
         <nav
@@ -37,7 +37,7 @@
                         #rla1="routerLinkActive"
                         [appCurrentPage]="rla1.isActive"
                     >
-                        Home
+                        {{ 'page.home' | translate }}
                     </a>
                 </li>
                 <li>
@@ -47,7 +47,7 @@
                         #rla2="routerLinkActive"
                         [appCurrentPage]="rla2.isActive"
                     >
-                        Web Accessibility Facts
+                        {{ 'page.facts' | translate }}
                     </a>
                 </li>
                 <li>
@@ -57,7 +57,7 @@
                         #rla3="routerLinkActive"
                         [appCurrentPage]="rla3.isActive"
                     >
-                        Form Example
+                        {{ 'page.form' | translate }}
                     </a>
                 </li>
             </ul>
@@ -68,21 +68,17 @@
     <router-outlet></router-outlet>
 </main>
 <footer>
-    An
+    <span>{{ 'footer.part1' | translate }}&nbsp;</span>
     <a
         href="https://twitter.com/hashtag/a11y"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Search for hashtag A 11 Y on twitter"
-    >
-        #a11y
-    </a>
-    project by
+    >#a11y</a>
+    <span>&nbsp;{{ 'footer.part2' | translate }}&nbsp;</span>
     <a
         href="https://github.com/alexlehner86"
         target="_blank"
         rel="noopener noreferrer"
-    >
-        Alexander Lehner
-    </a>
+    >Alexander Lehner</a>
 </footer>
