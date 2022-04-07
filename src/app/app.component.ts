@@ -1,7 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
 
 import { FACTS_ROUTE, FORM_ROUTE, HOME_ROUTE } from './constants/routes.constants';
@@ -28,10 +29,14 @@ export class AppComponent implements OnInit {
     private readonly specialDarkModeCssClass = 'special-dark-mode';
 
     constructor(
+        private route: ActivatedRoute,
         private router: Router,
         private titleService: Title,
+        private translateService: TranslateService,
         @Inject(DOCUMENT) private document: Document
-    ) { }
+    ) {
+        this.initTranslations();
+    }
 
     public ngOnInit(): void {
         this.router.events.pipe(
@@ -45,6 +50,21 @@ export class AppComponent implements OnInit {
     public onToggleDarkMode(): void {
         this.classes = this.isSpecialDarkModeOn ? '' : this.specialDarkModeCssClass;
         this.isSpecialDarkModeOn = !this.isSpecialDarkModeOn;
+    }
+
+    private initTranslations(): void {
+        // This language will be used as a fallback when a translation isn't found in the current language
+        this.translateService.setDefaultLang('en');
+
+        // The default lang to use. If the lang isn't available, it will use the current loader to get them
+        this.translateService.use('en');
+
+        // If URL parameter "lang" was set, then change translations to provided language
+        this.route.queryParams.subscribe(params => {
+            if (params.lang) {
+                this.translateService.use(params.lang);
+            }
+        });
     }
 
     private updatePageTitle(event: NavigationEnd): void {

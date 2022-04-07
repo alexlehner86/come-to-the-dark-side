@@ -2,12 +2,16 @@
     [href]="skipLinkToMain"
     accesskey="1"
     class="skip-link"
->Skip to Main Content (Access Key 1)</a>
+>
+    {{ 'skipLink.main' | translate}}
+</a>
 <a
     [href]="skipLinkToNavigation"
     accesskey="2"
     class="skip-link"
->Skip to Navigation (Access Key 2)</a>
+>
+    {{ 'skipLink.nav' | translate}}
+</a>
 <header>
     <div class="header-content">
         <div class="first-line">
@@ -32,7 +36,9 @@
                         routerLinkActive
                         #rla1="routerLinkActive"
                         [appCurrentPage]="rla1.isActive"
-                    >Home</a>
+                    >
+                        Home
+                    </a>
                 </li>
                 <li>
                     <a
@@ -40,7 +46,9 @@
                         routerLinkActive
                         #rla2="routerLinkActive"
                         [appCurrentPage]="rla2.isActive"
-                    >Web Accessibility Facts</a>
+                    >
+                        Web Accessibility Facts
+                    </a>
                 </li>
                 <li>
                     <a
@@ -48,7 +56,9 @@
                         routerLinkActive
                         #rla3="routerLinkActive"
                         [appCurrentPage]="rla3.isActive"
-                    >Form Example</a>
+                    >
+                        Form Example
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -64,11 +74,15 @@
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Search for hashtag A 11 Y on twitter"
-    >#a11y</a>
+    >
+        #a11y
+    </a>
     project by
     <a
         href="https://github.com/alexlehner86"
         target="_blank"
         rel="noopener noreferrer"
-    >Alexander Lehner</a>
+    >
+        Alexander Lehner
+    </a>
 </footer>
