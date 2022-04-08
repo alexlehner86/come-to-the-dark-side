@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     ) { }
 
     public ngOnInit(): void {
+        this.isGerman = this.translateService.currentLang === 'de';
         this.subscriptions.push(
             this.translateService.onLangChange.subscribe(({ lang }) => {
                 this.isGerman = lang === 'de';

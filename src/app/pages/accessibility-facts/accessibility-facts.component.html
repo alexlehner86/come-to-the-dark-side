@@ -1,4 +1,107 @@
-<div class="main-content">
+<div 
+    *ngIf="isGerman"
+    class="main-content"
+>
+    <h1>Web-Barrierefreiheit</h1>
+    <h2>Allgemein</h2>
+    <ul>
+        <li>
+            Nicht nur blinde Menschen profitieren von Web-Barrierefreiheit — auch die Bedürfnisse von hör- oder sehbeeinträchtigten
+            Menschen sowie von Personen mit motorischen oder kognitiven Beeinträchtigungen sollten berücksichtigt werden.
+        </li>
+        <li>
+            Wer Web-Inhalte barrierefrei gestaltet, verbessert damit auch die Bedienbarkeit für alle Menschen, mit oder
+            ohne Behinderung.
+        </li>
+        <li>
+            Barrierefreiheit erfordert ein laufendes Monitoring und Wartung.
+        </li>
+        <li>
+            Barrierefreier Code ist meistens sauberer Code. Das bedeutet: Wer in Barrierefreiheit investiert, der macht seine
+            Software gleichzeitig zuverlässiger und schneller.
+        </li>
+    </ul>
+    <a
+        href="https://www.boia.org/blog/50-digital-accessibility-facts-for-global-accessibility-awareness-day-gaad"
+        aria-label="Mehr Fakten zum Thema Barrierefreiheit"
+    >
+        Mehr Fakten
+    </a>
+    <h2>Assistive Technologien</h2>
+    <figure>
+        <img
+            src="./assets/img/person_using_computer.jpg"
+            alt="Eine Person schreibt auf einem Laptop. Neben dem Laptop steht eine Aloe Vera Pflanze auf dem Tisch."
+        >
+        <figcaption>Nutzer:innen haben verschiedene Bedürfnisse und Fähigkeiten. ©&nbsp;Wikimedia Commons</figcaption>
+    </figure>
+    <h3>Screenreader</h3>
+    <p>
+        Viele blinde oder sehbeeinträchtigte Menschen nutzen Screenreader, um im Internet zu surfen und Web-Inhalte zu lesen.
+        Ein Beispiel für einen Desktop-Screenreader ist
+        <a
+            href="https://www.nvaccess.org/download/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >NVDA</a>,
+        der gratis verfügbar ist. Die meisten Smartphones haben bereits Screenreader vorinstalliert. Apple-Geräte enthalten
+        <a
+            href="https://en.wikipedia.org/wiki/VoiceOver"
+            target="_blank"
+            rel="noopener noreferrer"
+        >VoiceOver</a>
+        und Android den Screenreader
+        <a
+            href="https://en.wikipedia.org/wiki/Google_TalkBack"
+            target="_blank"
+            rel="noopener noreferrer"
+        >TalkBack</a>.
+    </p>
+    <h3>Spracherkennung und -eingabe</h3>
+    <p>
+        Spracherkennungs-Software stellt für Menschen mit Beeinträchtigung eine große Hilfe dar. Für gehörlose oder
+        hörbeeinträchtigte Personen können automatisch Untertitel erstellt werden, zum Beispiel während einer
+        Diskussion in einem Konferenzraum, im Klassenzimmer oder bei einer kirchlichen Messe.
+    </p>
+    <p>
+        Spracherkennungs-Software ist auch sehr nützlich für Menschen mit motorischer Beeinträchtigungen,
+        z.B. <span lang="en">Repetitive Stress Injuries</span> (RSI). Tatsächlich waren es Personen, die intensiv die
+        Tastatur benutzt haben und infolge RSI entwickelt haben, die früh die Spracherkennung genutzt haben.
+    </p>
+    <p>
+        Quelle:
+        <a
+            href="https://en.wikipedia.org/wiki/Speech_recognition#Usage_in_education_and_daily_life"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Wikipedia
+        </a>
+    </p>
+</div>
+<aside *ngIf="isGerman">
+    <h1>Wusstest du</h1>
+    <p>
+        Der Begriff <span class="highlight">„a11y"</span> ist eine Abkürzung des englischen
+        Wortes <span class="highlight" lang="en">„accessibility“</span>.
+    </p>
+    <p>
+        Es ist ein Numeronym, also ein Wort mit Ziffern, die eine Abkürzung darstellen. Zwischen dem „a“ und „y“ sind
+        elf Buchstaben eingeschlossen, die im Wort „a11y“ mit der Ziffer 11 ausgedrückt werden.
+    </p>
+    <p>
+        Finde mehr über Barrierefreiheit heraus, indem du nach
+        <a
+            href="https://twitter.com/hashtag/a11y"
+            target="_blank"
+            rel="noopener noreferrer"
+        >#a11y auf Twitter</a> suchst.
+    </p>
+</aside>
+<div 
+    *ngIf="!isGerman"
+    class="main-content"
+>
     <h1>Web Accessibility Facts</h1>
     <h2>General</h2>
     <ul>
@@ -76,14 +179,14 @@
         </a>
     </p>
 </div>
-<aside>
+<aside *ngIf="!isGerman">
     <h1>Did you know</h1>
     <p>
         The term <span class="highlight">"a11y"</span> is a shortened version of the word <span class="highlight">"accessibility"</span>.
     </p>
     <p>
-        It is a numeronym which is a word where a number is used to form an abbreviation. There are 11 letters between the "a" and the "y,"
-        so accessibility becomes a11y. 
+        It is a numeronym which is a word where a number is used to form an abbreviation. There are 11 letters between the "a" and
+        the "y", so accessibility becomes a11y. 
     </p>
     <p>
         Find out more about accessiblity by searching for
