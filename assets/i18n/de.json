@@ -1,0 +1,68 @@
+{
+    "form": {
+        "heading": "Barrierefreies Formular",
+        "generalInfo": "Dieses Formular veranschaulicht, wie man ein barrierefreies Formular gestalten kann. Es verarbeitet die Eingaben nur client-seitig, um bei Bedarf Fehlermeldungen anzuzeigen. Die eingegebenen Daten werden an keinen Server geschickt, gespeichert oder verarbeitet.",
+        "required": "Pflichtfeld",
+        "requiredFieldsInfo": "Pflichtfelder sind mit einem Sternchen (*) gekennzeichnet und müssen zum Abschicken des Formulars ausgefüllt werden.",
+        "contactInfo": {
+            "legend": "Kontaktinformation",
+            "fullName": {
+                "label": "Vor- und Nachname",
+                "error": "Bitte geben Sie Ihren Vor- und Nachnamen ein"
+            },
+            "email": {
+                "label": "E-Mail",
+                "error": "Bitte geben Sie ihre E-Mail-Adresse im Format \"username@server.domain\" ein. Beispiel: alex@gmail.com"
+            },
+            "phone": {
+                "label": "Telefonnummer"
+            },
+            "gender": {
+                "label": "Geschlecht",
+                "option": {
+                    "female": "Weiblich",
+                    "male": "Männlich",
+                    "other": "Divers",
+                    "notsay": "Möchte ich nicht sagen"
+                }
+            }
+        },
+        "favScreenReader": {
+            "legend": "Lieblings-Screenreader",
+            "option": {
+                "all": "Ich liebe sie alle",
+                "jaws": "JAWS",
+                "nvda": "NVDA",
+                "talkback": "TalkBack",
+                "voiceover": "VoiceOver"
+            }
+        },
+        "testingTools": {
+            "legend": "Welche Test-Tools für Barrierefreiheit sind Ihnen bekannt?"
+        },
+        "submitButton": "Abschicken",
+        "success": {
+            "message": "Herzlichen Glückwunsch, {{name}}! Sie haben erfolgreich das Formular abgeschickt.",
+            "favScreenReader": "Ihr Lieblings-Screenreader ist",
+            "testingTools": "Sie kennen die folgenden Test-Tools",
+            "none": "keine"
+        }
+    },
+    "footer": {
+        "part1": "Ein",
+        "part2": "Projekt von"
+    },
+    "header": {
+        "goDarkButton": "Licht aus",
+        "title": "Komm auf die dunkle Seite"
+    },
+    "page": {
+        "facts": "Fakten zu Barrierefreiheit",
+        "form": "Formular-Beispiel",
+        "home": "Startseite"
+    },
+    "skipLink": {
+        "main": "Zum Hauptbereich springen (Access Key 1)",
+        "nav": "Zur Navigation springen (Access Key 2)"
+    }
+}
