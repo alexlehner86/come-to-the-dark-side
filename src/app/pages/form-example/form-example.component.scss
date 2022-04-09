@@ -3,8 +3,12 @@
 @import "src/styles/base/variables.scss";
 
 form {
+    border: 2px solid black;
+    border-radius: 4px;
     max-width: 30rem;
     margin: 0 auto;
+    padding: 0.75rem 0.5rem;
+
     &.show-error-texts {
         .form-group input:not(:focus).ng-invalid {
             border: 0.2rem solid $error-color;
@@ -12,6 +16,17 @@ form {
         input.ng-invalid + .error-text {
             display: block;
         }
+    }
+
+    p.required-fields-info {
+        color: #555555;
+        font-size: 0.85em;
+        font-style: italic;
+        margin: 0 1rem 0.75rem;
+    }
+
+    button[type="submit"] {
+        margin-right: 0.25rem;
     }
 }
 

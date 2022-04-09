@@ -1,4 +1,53 @@
 {
+    "form": {
+        "heading": "Form Example",
+        "generalInfo": "The following form is only a demonstration of how to create an accessible form. It only validates the input (on client side) in order to show error messages. The data you enter will not be sent to a server, stored or processed anywhere.",
+        "required": "required",
+        "requiredFieldsInfo": "Required fields are marked with an asterisk (*) and must be filled in to complete the form.",
+        "contactInfo": {
+            "legend": "Contact Information",
+            "fullName": {
+                "label": "Full Name",
+                "error": "Please enter your full name"
+            },
+            "email": {
+                "label": "E-Mail",
+                "error": "Please enter your e-mail address in the format \"username@server.domain\". Example: alex@gmail.com"
+            },
+            "phone": {
+                "label": "Phone Number"
+            },
+            "gender": {
+                "label": "Gender",
+                "option": {
+                    "female": "Female",
+                    "male": "Male",
+                    "other": "Other",
+                    "notsay": "Prefer not to say"
+                }
+            }
+        },
+        "favScreenReader": {
+            "legend": "Favorite Screen Reader",
+            "option": {
+                "all": "I love them all",
+                "jaws": "JAWS",
+                "nvda": "NVDA",
+                "talkback": "TalkBack",
+                "voiceover": "VoiceOver"
+            }
+        },
+        "testingTools": {
+            "legend": "Which Accessibilty Testing Tools Do You Know?"
+        },
+        "submitButton": "Submit",
+        "success": {
+            "message": "Congratulations {{name}}! You've successfully submitted the form.",
+            "favScreenReader": "You're favorite screen reader is",
+            "testingTools": "You know the following testing tools",
+            "none": "none"
+        }
+    },
     "footer": {
         "part1": "An",
         "part2": "project by"

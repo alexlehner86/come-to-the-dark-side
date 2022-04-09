@@ -1,20 +1,21 @@
-<h1>Form Example</h1>
-<p>
-    The following form is only a demonstration of how to create an accessible form.
-    It only validates the input (on client side) in order to show error messages. The data
-    you enter will not be sent to a server, stored or processed anywhere.
-</p>
+<h1>{{ 'form.heading' | translate }}</h1>
+<p>{{ 'form.generalInfo' | translate }}</p>
 <form
     #exampleForm="ngForm"
     [ngClass]="{'show-error-texts': markInvalidFields, 'hidden': isSuccessfullySubmitted}"
     (ngSubmit)="onSubmit(exampleForm)"
 >
+    <p class="required-fields-info">
+        {{ 'form.requiredFieldsInfo' | translate }}
+    </p>
     <fieldset>
-        <legend>Contact Information</legend>
+        <legend>
+            {{ 'form.contactInfo.legend' | translate }}
+        </legend>
         <div class="form-group">
             <label for="full-name">
-                Full Name
-                <abbr title="required">*</abbr>
+                {{ 'form.contactInfo.fullName.label' | translate }}
+                <abbr [title]="'form.required' | translate">*</abbr>
             </label>
             <input
                 #fullNameInputElementRef
@@ -31,13 +32,13 @@
                 id="full-name-error"
                 class="error-text"
             >
-                Please enter your full name
+                {{ 'form.contactInfo.fullName.error' | translate }}
             </p>
         </div>
         <div class="form-group">
             <label for="email">
-                E-Mail
-                <abbr title="required">*</abbr>
+                {{ 'form.contactInfo.email.label' | translate }}
+                <abbr [title]="'form.required' | translate">*</abbr>
             </label>
             <input
                 #emailInputElementRef
@@ -55,11 +56,13 @@
                 id="email-error"
                 class="error-text"
             >
-                Please enter your e-mail address in the format "[username]@[server].[domain]". Example: alex@gmail.com
+                {{ 'form.contactInfo.email.error' | translate }}
             </p>
         </div>
         <div class="form-group">
-            <label for="phone-number">Phone Number</label>
+            <label for="phone-number">
+                {{ 'form.contactInfo.phone.label' | translate }}
+            </label>
             <input
                 id="phone-number"
                 type="tel"
@@ -69,21 +72,34 @@
             >
         </div>
         <div class="form-group">
-            <label for="gender-select">Gender</label>
+            <label for="gender-select">
+                {{ 'form.contactInfo.gender.label' | translate }}
+            </label>
             <select
                 id="gender-select"
                 name="gender"
+                autocomplete="sex"
                 [(ngModel)]="gender"
             >
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="other">Other</option>
-                <option value="notsay">Prefer not to say</option>
+                <option value="female">
+                    {{ 'form.contactInfo.gender.option.female' | translate }}
+                </option>
+                <option value="male">
+                    {{ 'form.contactInfo.gender.option.male' | translate }}
+                </option>
+                <option value="other">
+                    {{ 'form.contactInfo.gender.option.other' | translate }}
+                </option>
+                <option value="notsay">
+                    {{ 'form.contactInfo.gender.option.notsay' | translate }}
+                </option>
             </select>
         </div>
     </fieldset>
     <fieldset class="option-group">
-        <legend>Favorite Screen Reader</legend>
+        <legend>
+            {{ 'form.favScreenReader.legend' | translate }}
+        </legend>
         <div
             *ngFor="let screenReader of screenReaders; index as radioButtonIndex"
             class="option"
@@ -96,12 +112,14 @@
                 required
                 [(ngModel)]="favoriteScreenReader"
             >
-            <label [for]="'fav-screen-reader' + radioButtonIndex">{{screenReader}}</label>
+            <label [for]="'fav-screen-reader' + radioButtonIndex">
+                {{ 'form.favScreenReader.option.' + screenReader | translate }}
+            </label>
         </div>
     </fieldset>
     <fieldset class="option-group">
         <legend>
-            Which Accessibilty Testing Tools Do You Know?
+            {{ 'form.testingTools.legend' | translate }}
         </legend>
         <div
             *ngFor="let tool of testingTools; index as checkboxIndex"
@@ -114,11 +132,16 @@
                 [value]="tool.name"
                 [(ngModel)]="tool.checked"
             >
-            <label [for]="'known-testing-tool' + checkboxIndex">{{tool.name}}</label>
+            <label
+                [for]="'known-testing-tool' + checkboxIndex"
+                lang="en"
+            >
+                {{tool.name}}
+            </label>
         </div>
     </fieldset>
     <div class="form-actions">
-        <button type="submit">Submit</button>
+        <button type="submit">{{ 'form.submitButton' | translate }}</button>
     </div>
 </form>
 <div
@@ -127,9 +150,11 @@
 >
     <p>{{successMessage}}</p>
     <p class="smaller">
-        You're favorite screen reader is {{favoriteScreenReader}}.
+        {{ 'form.success.favScreenReader' | translate }}:
+        {{ 'form.favScreenReader.option.' + favoriteScreenReader | translate }}.
     </p>
     <p class="smaller">
-        You know the following testing tools: {{checkedTestingTools ? checkedTestingTools : '(none)'}}.
+        {{ 'form.success.testingTools' | translate }}:
+        {{ checkedTestingTools ? checkedTestingTools : 'form.success.none' | translate }}.
     </p>
 </div>

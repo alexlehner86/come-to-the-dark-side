@@ -4,9 +4,9 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs/operators';
-import { PAGE_TITLE } from './constants/app.constants';
 
-import { FACTS_ROUTE, FORM_ROUTE, HOME_ROUTE } from './constants/routes.constants';
+import { PAGE_TITLE, SUBPAGE_FACTS_TITLE, SUBPAGE_FORM_TITLE } from './constants/app.constants';
+import { FACTS_ROUTE, FORM_ROUTE } from './constants/routes.constants';
 
 @Component({
     selector: 'app-root',
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
      */
     private readonly specialDarkModeCssClass = 'special-dark-mode';
 
-    private pageTitle = 'Come To The Dark Side';
+    private isInitialNavigation = true;
 
     constructor(
         private route: ActivatedRoute,
@@ -44,8 +44,12 @@ export class AppComponent implements OnInit {
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd)
         ).subscribe(event => {
-            this.updatePageTitle(event as any);
+            const navEvent = event as any as NavigationEnd;
             this.updateSkipLinks();
+            if (!this.isInitialNavigation) {
+                this.updatePageTitle(navEvent.urlAfterRedirects);
+            }
+            this.isInitialNavigation = false;
         });
     }
 
@@ -65,26 +69,24 @@ export class AppComponent implements OnInit {
         this.route.queryParams.subscribe(params => {
             if (params.lang && ['de', 'en'].includes(params.lang)) {
                 this.translateService.use(params.lang);
-                this.pageTitle = PAGE_TITLE[params.lang];
                 // Set lang attribute of html tag for assistive technologies.
                 this.document.documentElement.setAttribute('lang', params.lang);
+                this.updatePageTitle(this.document.URL, params.lang);
             }
         });
     }
 
-    private updatePageTitle(event: NavigationEnd): void {
+    private updatePageTitle(url: string, lang?: string): void {
+        const langToUse = lang ?? this.translateService.currentLang;
         switch (true) {
-            case event.urlAfterRedirects.endsWith(HOME_ROUTE):
-                this.titleService.setTitle(`${this.translateService.instant('page.home')} – ${this.pageTitle}`);
+            case url.includes('/' + FACTS_ROUTE):
+                this.titleService.setTitle(SUBPAGE_FACTS_TITLE[langToUse]);
                 break;
-            case event.urlAfterRedirects.endsWith(FACTS_ROUTE):
-                this.titleService.setTitle(`${this.translateService.instant('page.facts')} – ${this.pageTitle}`);
-                break;
-            case event.urlAfterRedirects.endsWith(FORM_ROUTE):
-                this.titleService.setTitle(`${this.translateService.instant('page.form')} – ${this.pageTitle}`);
+            case url.includes('/' + FORM_ROUTE):
+                this.titleService.setTitle(SUBPAGE_FORM_TITLE[langToUse]);
                 break;
             default:
-                this.titleService.setTitle(this.pageTitle);
+                this.titleService.setTitle(PAGE_TITLE[langToUse]);
         }
     }
 

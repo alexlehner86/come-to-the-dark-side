@@ -6,6 +6,10 @@ This project wants to enable all users to experience a website without visual in
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5 and later updated to Angular version 13.3.2.
 
+## Internationalization
+
+The app supports English and German. The default language is English. To use the app in German, add the URL parameter `lang` with the value `de`. For example: `https://alexlehner86.github.io/come-to-the-dark-side/home?lang=de`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
